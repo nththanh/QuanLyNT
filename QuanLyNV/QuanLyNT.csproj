@@ -70,6 +70,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QuanLyNV_GUI\QuanLyNT_GUI.csproj">
+      <Project>{9A81521A-5A8F-424F-B249-80815B835F03}</Project>
+      <Name>QuanLyNT_GUI</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
