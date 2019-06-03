@@ -74,7 +74,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.btEdit = new System.Windows.Forms.Button();
+            this.btEdit_HD = new System.Windows.Forms.Button();
             this.cbGiaBan = new System.Windows.Forms.ComboBox();
             this.cbSoLuong = new System.Windows.Forms.ComboBox();
             this.txtSLConLai = new System.Windows.Forms.TextBox();
@@ -96,7 +96,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 22);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(702, 620);
+            this.tabControl1.Size = new System.Drawing.Size(715, 620);
             this.tabControl1.TabIndex = 7;
             // 
             // tabPage1
@@ -107,7 +107,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(694, 594);
+            this.tabPage1.Size = new System.Drawing.Size(707, 594);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Thêm/Xóa hóa đơn";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -141,7 +141,7 @@
             // 
             // btEdit_CTHD
             // 
-            this.btEdit_CTHD.Location = new System.Drawing.Point(265, 127);
+            this.btEdit_CTHD.Location = new System.Drawing.Point(296, 128);
             this.btEdit_CTHD.Name = "btEdit_CTHD";
             this.btEdit_CTHD.Size = new System.Drawing.Size(75, 23);
             this.btEdit_CTHD.TabIndex = 39;
@@ -167,7 +167,7 @@
             // 
             // btDelete_CTHD
             // 
-            this.btDelete_CTHD.Location = new System.Drawing.Point(346, 127);
+            this.btDelete_CTHD.Location = new System.Drawing.Point(377, 128);
             this.btDelete_CTHD.Name = "btDelete_CTHD";
             this.btDelete_CTHD.Size = new System.Drawing.Size(75, 23);
             this.btDelete_CTHD.TabIndex = 37;
@@ -177,7 +177,7 @@
             // 
             // btInsert_CTHD
             // 
-            this.btInsert_CTHD.Location = new System.Drawing.Point(184, 127);
+            this.btInsert_CTHD.Location = new System.Drawing.Point(215, 128);
             this.btInsert_CTHD.Name = "btInsert_CTHD";
             this.btInsert_CTHD.Size = new System.Drawing.Size(75, 23);
             this.btInsert_CTHD.TabIndex = 36;
@@ -273,7 +273,7 @@
             // 
             // btThemMoi
             // 
-            this.btThemMoi.Location = new System.Drawing.Point(184, 106);
+            this.btThemMoi.Location = new System.Drawing.Point(215, 106);
             this.btThemMoi.Name = "btThemMoi";
             this.btThemMoi.Size = new System.Drawing.Size(75, 23);
             this.btThemMoi.TabIndex = 26;
@@ -368,7 +368,7 @@
             // 
             // btDelete_HD
             // 
-            this.btDelete_HD.Location = new System.Drawing.Point(346, 106);
+            this.btDelete_HD.Location = new System.Drawing.Point(377, 106);
             this.btDelete_HD.Name = "btDelete_HD";
             this.btDelete_HD.Size = new System.Drawing.Size(75, 23);
             this.btDelete_HD.TabIndex = 12;
@@ -387,7 +387,7 @@
             // 
             // btInsert_HD
             // 
-            this.btInsert_HD.Location = new System.Drawing.Point(265, 106);
+            this.btInsert_HD.Location = new System.Drawing.Point(296, 106);
             this.btInsert_HD.Name = "btInsert_HD";
             this.btInsert_HD.Size = new System.Drawing.Size(75, 23);
             this.btInsert_HD.TabIndex = 10;
@@ -407,10 +407,10 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(39, 326);
+            this.dataGridView1.Location = new System.Drawing.Point(84, 326);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(627, 236);
+            this.dataGridView1.Size = new System.Drawing.Size(545, 236);
             this.dataGridView1.TabIndex = 13;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -429,18 +429,18 @@
             this.tabPage2.Controls.Add(this.label11);
             this.tabPage2.Controls.Add(this.label12);
             this.tabPage2.Controls.Add(this.dataGridView2);
-            this.tabPage2.Controls.Add(this.btEdit);
+            this.tabPage2.Controls.Add(this.btEdit_HD);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(694, 594);
+            this.tabPage2.Size = new System.Drawing.Size(707, 594);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Sửa hóa đơn";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // txtMaHD2
             // 
-            this.txtMaHD2.Location = new System.Drawing.Point(135, 42);
+            this.txtMaHD2.Location = new System.Drawing.Point(288, 46);
             this.txtMaHD2.Name = "txtMaHD2";
             this.txtMaHD2.ReadOnly = true;
             this.txtMaHD2.Size = new System.Drawing.Size(200, 20);
@@ -450,7 +450,7 @@
             // 
             this.cbMaKH2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMaKH2.FormattingEnabled = true;
-            this.cbMaKH2.Location = new System.Drawing.Point(135, 94);
+            this.cbMaKH2.Location = new System.Drawing.Point(288, 98);
             this.cbMaKH2.Name = "cbMaKH2";
             this.cbMaKH2.Size = new System.Drawing.Size(200, 21);
             this.cbMaKH2.TabIndex = 38;
@@ -459,14 +459,14 @@
             // 
             this.cbMaNV2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMaNV2.FormattingEnabled = true;
-            this.cbMaNV2.Location = new System.Drawing.Point(135, 68);
+            this.cbMaNV2.Location = new System.Drawing.Point(288, 72);
             this.cbMaNV2.Name = "cbMaNV2";
             this.cbMaNV2.Size = new System.Drawing.Size(200, 21);
             this.cbMaNV2.TabIndex = 37;
             // 
             // txtGhiChu2
             // 
-            this.txtGhiChu2.Location = new System.Drawing.Point(135, 173);
+            this.txtGhiChu2.Location = new System.Drawing.Point(288, 177);
             this.txtGhiChu2.Name = "txtGhiChu2";
             this.txtGhiChu2.Size = new System.Drawing.Size(200, 20);
             this.txtGhiChu2.TabIndex = 36;
@@ -474,7 +474,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(37, 178);
+            this.label3.Location = new System.Drawing.Point(190, 182);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 35;
@@ -483,7 +483,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(37, 150);
+            this.label4.Location = new System.Drawing.Point(190, 154);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(82, 13);
             this.label4.TabIndex = 34;
@@ -491,15 +491,16 @@
             // 
             // txtTongThanhTien2
             // 
-            this.txtTongThanhTien2.Location = new System.Drawing.Point(135, 147);
+            this.txtTongThanhTien2.Location = new System.Drawing.Point(288, 151);
             this.txtTongThanhTien2.Name = "txtTongThanhTien2";
+            this.txtTongThanhTien2.ReadOnly = true;
             this.txtTongThanhTien2.Size = new System.Drawing.Size(200, 20);
             this.txtTongThanhTien2.TabIndex = 33;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(37, 127);
+            this.label9.Location = new System.Drawing.Point(190, 131);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(49, 13);
             this.label9.TabIndex = 32;
@@ -507,7 +508,7 @@
             // 
             // dtpNgayLap2
             // 
-            this.dtpNgayLap2.Location = new System.Drawing.Point(135, 121);
+            this.dtpNgayLap2.Location = new System.Drawing.Point(288, 125);
             this.dtpNgayLap2.Name = "dtpNgayLap2";
             this.dtpNgayLap2.Size = new System.Drawing.Size(200, 20);
             this.dtpNgayLap2.TabIndex = 31;
@@ -515,7 +516,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(37, 45);
+            this.label10.Location = new System.Drawing.Point(190, 49);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(65, 13);
             this.label10.TabIndex = 30;
@@ -524,7 +525,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(37, 99);
+            this.label11.Location = new System.Drawing.Point(190, 103);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(82, 13);
             this.label11.TabIndex = 27;
@@ -533,7 +534,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(37, 71);
+            this.label12.Location = new System.Drawing.Point(190, 75);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(72, 13);
             this.label12.TabIndex = 26;
@@ -544,19 +545,19 @@
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(24, 262);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(448, 241);
+            this.dataGridView2.Size = new System.Drawing.Size(664, 241);
             this.dataGridView2.TabIndex = 5;
             this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             // 
-            // btEdit
+            // btEdit_HD
             // 
-            this.btEdit.Location = new System.Drawing.Point(173, 209);
-            this.btEdit.Name = "btEdit";
-            this.btEdit.Size = new System.Drawing.Size(61, 24);
-            this.btEdit.TabIndex = 4;
-            this.btEdit.Text = "Sửa";
-            this.btEdit.UseVisualStyleBackColor = true;
-            this.btEdit.Click += new System.EventHandler(this.btEdit_Click);
+            this.btEdit_HD.Location = new System.Drawing.Point(350, 218);
+            this.btEdit_HD.Name = "btEdit_HD";
+            this.btEdit_HD.Size = new System.Drawing.Size(61, 24);
+            this.btEdit_HD.TabIndex = 4;
+            this.btEdit_HD.Text = "Sửa";
+            this.btEdit_HD.UseVisualStyleBackColor = true;
+            this.btEdit_HD.Click += new System.EventHandler(this.btEditHD_Click);
             // 
             // cbGiaBan
             // 
@@ -603,7 +604,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(731, 662);
+            this.ClientSize = new System.Drawing.Size(738, 662);
             this.Controls.Add(this.tabControl1);
             this.Name = "HoaDon_GUI";
             this.Text = "Nhân viên";
@@ -633,7 +634,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Button btEdit;
+        private System.Windows.Forms.Button btEdit_HD;
         private System.Windows.Forms.ComboBox cbMaKH;
         private System.Windows.Forms.ComboBox cbMaNV;
         private System.Windows.Forms.TextBox txtGhiChu;

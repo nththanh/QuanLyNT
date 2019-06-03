@@ -55,6 +55,27 @@ namespace QuanLyNT_DAL
             return false;
         }
 
+        public bool DeleteALL(int mahd)
+        {
+            try
+            {
+                con.Open();
+
+                string SQL = string.Format("Delete from tblChiTietHoaDon where mahoadon ='{0}'", mahd);
+
+                SqlCommand cmd = new SqlCommand(SQL, con);
+                if (cmd.ExecuteNonQuery() > 0)
+                    return true;
+            }
+
+            catch (Exception e) { }
+
+            finally
+            { con.Close(); }
+
+            return false;
+        }
+
         public bool Edit(int mahoadon, int mathuoc_mathietbi, string malohang, int sl , int thanhtien)
         {
             try

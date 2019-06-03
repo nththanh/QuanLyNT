@@ -30,11 +30,12 @@ namespace QuanLyNT_GUI
             int blresult;
             blresult = 0;
             blresult = Convert.ToInt16(MessageBox.Show("Are you sure you want to delete this row?", "Deleting employee", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation));
-            //MessageBox.Show(blresult.ToString());
+            
             if (blresult == 1)
             {
                 if (txtMaHD.Text != "")
                 {
+                    cthd_DAL.DeleteALL(Convert.ToInt32(txtMaHD.Text));
                     if (hd_BUS.Delete(Convert.ToInt32(txtMaHD.Text)))
                     {
                         MessageBox.Show("Deleting success");
@@ -47,7 +48,7 @@ namespace QuanLyNT_GUI
                 {
                     MessageBox.Show("Please select one employee to delete");
                 }
-            }//Kết thúc thao tác xóa nhân viên
+            }
         }
 
 
@@ -55,12 +56,14 @@ namespace QuanLyNT_GUI
         private void HoaDon_GUI_Load(object sender, EventArgs e)
         {
             btDelete_CTHD.Enabled = false;
+            btEdit_CTHD.Enabled = false;
+            btEdit_HD.Enabled = false;
+            btDelete_HD.Enabled = false;
+
             DataTable tblHD = new DataTable();
-            tblHD = hd_BUS.Display("Select * from tblHoaDon");
-            //dataGridView1.DataSource = tblHD;
-            //dataGridView1.AllowUserToAddRows = false;
-            //dataGridView2.DataSource = tblHD;
-            //dataGridView2.AllowUserToAddRows = false;
+            tblHD = hd_BUS.Display("Select * from tblHoaDon");           
+            dataGridView2.DataSource = tblHD;
+            dataGridView2.AllowUserToAddRows = false;
 
             object mahd;
             mahd = tblHD.Compute("Max(mahoadon)", "");
@@ -88,8 +91,6 @@ namespace QuanLyNT_GUI
             cbMaKH2.DisplayMember = "makh";
             cbMaKH2.ValueMember = "makh";
 
-
-
             if (tblHD.Rows.Count == 0)
             {
                 MessageBox.Show("Chưa có hóa đơn nào trong danh sách");
@@ -111,10 +112,11 @@ namespace QuanLyNT_GUI
                 txtSoLuong.Text = dataGridView1.CurrentRow.Cells["sl"].Value.ToString();
                 txtThanhTien.Text = dataGridView1.CurrentRow.Cells["thanhtien"].Value.ToString();
                 btDelete_CTHD.Enabled = true;
+                btEdit_CTHD.Enabled = true;
             }
         }
 
-        private void btEdit_Click(object sender, EventArgs e)
+        private void btEditHD_Click(object sender, EventArgs e)
         {
             if (txtMaHD2.Text != "")
             {
@@ -142,7 +144,7 @@ namespace QuanLyNT_GUI
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView1.Rows.Count == 0)
+            if (dataGridView2.Rows.Count == 0)
             {
 
             }
@@ -154,6 +156,7 @@ namespace QuanLyNT_GUI
                 dtpNgayLap2.Text = dataGridView2.CurrentRow.Cells["ngaylap"].Value.ToString();
                 txtTongThanhTien2.Text = dataGridView2.CurrentRow.Cells["tongthanhtien"].Value.ToString();
                 txtGhiChu2.Text = dataGridView2.CurrentRow.Cells["ghichu"].Value.ToString();
+                btEdit_HD.Enabled = true;
             }
         }
 
@@ -169,7 +172,12 @@ namespace QuanLyNT_GUI
                 HoaDon_DTO nv_DTO = new HoaDon_DTO(Convert.ToInt32(txtMaHD.Text), Convert.ToInt32(cbMaNV.Text), Convert.ToInt32(cbMaKH.Text), dtpNgayLap.Value, Convert.ToInt32(txtTongThanhTien.Text), txtGhiChu.Text);
                 if (hd_BUS.Insert(nv_DTO))
                 {
+                    DataTable tblHD = new DataTable();
+                    tblHD = hd_BUS.Display("Select * from tblHoaDon");
+                    dataGridView2.DataSource = tblHD;
+                    dataGridView2.AllowUserToAddRows = false;
                     MessageBox.Show("Thêm thành công");
+                    btDelete_HD.Enabled = true;
                 }
                 else
                     MessageBox.Show("Thêm thất bại");
@@ -309,7 +317,8 @@ namespace QuanLyNT_GUI
                     DataTable tblCTHD = new DataTable();
                     tblCTHD = cthd_DAL.Display("Select * from tblChiTietHoaDon where mahoadon = " + txtMaHD.Text);
                     dataGridView1.DataSource = tblCTHD;
-                    dataGridView1.AllowUserToAddRows = false;                    
+                    dataGridView1.AllowUserToAddRows = false;
+                    btEdit_CTHD.Enabled = false;
                 }
                 else
                     MessageBox.Show("Sửa thất bại");
@@ -341,6 +350,7 @@ namespace QuanLyNT_GUI
                 int mathuoc_mathietbi = Convert.ToInt32(cbMaThuoc_MaThietBi.Text);
                 int soluong = Convert.ToInt32(cbSoLuong.Text) + Convert.ToInt32(txtSoLuong.Text);
                 int giaban = Convert.ToInt32(cbGiaBan.Text);
+
                 if (khohang_DAL.Edit(malohang, mathuoc_mathietbi, soluong, giaban))
                 {
                     cthd_DAL.Delete(Convert.ToInt32(txtMaHD.Text), Convert.ToInt32(cbMaThuoc_MaThietBi.Text));
@@ -361,6 +371,6 @@ namespace QuanLyNT_GUI
                     MessageBox.Show("Xóa thất bại");
             }
            
-        }
+        }       
     }
 }
