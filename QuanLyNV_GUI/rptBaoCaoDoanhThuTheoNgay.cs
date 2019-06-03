@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QuanLyNV_GUI {
+namespace QuanLyNT_GUI {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -41,7 +41,7 @@ namespace QuanLyNV_GUI {
         
         public override string FullResourceName {
             get {
-                return "QuanLyNV_GUI.rptBaoCaoDoanhThuTheoNgay.rpt";
+                return "QuanLyNT_GUI.rptBaoCaoDoanhThuTheoNgay.rpt";
             }
             set {
                 // Do nothing

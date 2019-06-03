@@ -168,5 +168,10 @@ namespace QuanLyNT_GUI
                 txtGhiChu2.Text = dataGridView2.CurrentRow.Cells["ghichu"].Value.ToString();
             }
         }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

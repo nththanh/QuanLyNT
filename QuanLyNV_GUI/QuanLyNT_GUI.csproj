@@ -7,8 +7,8 @@
     <ProjectGuid>{9A81521A-5A8F-424F-B249-80815B835F03}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>QuanLyNV_GUI</RootNamespace>
-    <AssemblyName>QuanLyNV_GUI</AssemblyName>
+    <RootNamespace>QuanLyNT_GUI</RootNamespace>
+    <AssemblyName>QuanLyNT_GUI</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -127,6 +127,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="rptBaoCaoDoanhThuTongQuan.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

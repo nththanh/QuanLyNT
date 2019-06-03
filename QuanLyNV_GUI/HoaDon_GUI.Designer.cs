@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.txtMaHD = new System.Windows.Forms.TextBox();
             this.cbMaKH = new System.Windows.Forms.ComboBox();
             this.cbMaNV = new System.Windows.Forms.ComboBox();
             this.txtGhiChu = new System.Windows.Forms.TextBox();
@@ -45,9 +46,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.btEdit = new System.Windows.Forms.Button();
-            this.txtMaHD = new System.Windows.Forms.TextBox();
             this.txtMaHD2 = new System.Windows.Forms.TextBox();
             this.cbMaKH2 = new System.Windows.Forms.ComboBox();
             this.cbMaNV2 = new System.Windows.Forms.ComboBox();
@@ -60,6 +58,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.btEdit = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -101,6 +101,15 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Thêm/Xóa hóa đơn";
             this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // txtMaHD
+            // 
+            this.txtMaHD.Location = new System.Drawing.Point(135, 42);
+            this.txtMaHD.Name = "txtMaHD";
+            this.txtMaHD.ReadOnly = true;
+            this.txtMaHD.Size = new System.Drawing.Size(200, 20);
+            this.txtMaHD.TabIndex = 25;
             // 
             // cbMaKH
             // 
@@ -247,33 +256,6 @@
             this.tabPage2.Text = "Sửa hóa đơn";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(24, 262);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(448, 241);
-            this.dataGridView2.TabIndex = 5;
-            this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
-            // 
-            // btEdit
-            // 
-            this.btEdit.Location = new System.Drawing.Point(173, 209);
-            this.btEdit.Name = "btEdit";
-            this.btEdit.Size = new System.Drawing.Size(61, 24);
-            this.btEdit.TabIndex = 4;
-            this.btEdit.Text = "Sửa";
-            this.btEdit.UseVisualStyleBackColor = true;
-            this.btEdit.Click += new System.EventHandler(this.btEdit_Click);
-            // 
-            // txtMaHD
-            // 
-            this.txtMaHD.Location = new System.Drawing.Point(135, 42);
-            this.txtMaHD.Name = "txtMaHD";
-            this.txtMaHD.ReadOnly = true;
-            this.txtMaHD.Size = new System.Drawing.Size(200, 20);
-            this.txtMaHD.TabIndex = 25;
-            // 
             // txtMaHD2
             // 
             this.txtMaHD2.Location = new System.Drawing.Point(135, 42);
@@ -374,6 +356,25 @@
             this.label12.Size = new System.Drawing.Size(72, 13);
             this.label12.TabIndex = 26;
             this.label12.Text = "Mã nhân viên";
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(24, 262);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(448, 241);
+            this.dataGridView2.TabIndex = 5;
+            this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
+            // 
+            // btEdit
+            // 
+            this.btEdit.Location = new System.Drawing.Point(173, 209);
+            this.btEdit.Name = "btEdit";
+            this.btEdit.Size = new System.Drawing.Size(61, 24);
+            this.btEdit.TabIndex = 4;
+            this.btEdit.Text = "Sửa";
+            this.btEdit.UseVisualStyleBackColor = true;
+            this.btEdit.Click += new System.EventHandler(this.btEdit_Click);
             // 
             // HoaDon_GUI
             // 
