@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace QuanLyNT_DTO
 {
-    class ChiTietHoaDon_DTO
+    public class ChiTietHoaDon_DTO
     {
         private int mahoadon;
         private int mathuoc_mathietbi;

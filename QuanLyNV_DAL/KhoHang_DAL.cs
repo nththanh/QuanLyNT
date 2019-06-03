@@ -7,17 +7,17 @@ using QuanLyNT_DTO;
 using System.Data;
 using System.Data.SqlClient;
 
+
 namespace QuanLyNT_DAL
 {
-    public class ChiTietHoaDon_DAL : DBConnection
+    public class KhoHang_DAL : DBConnection
     {
-        public bool Insert(ChiTietHoaDon_DTO cthd)
+        public bool Insert(KhoHang_DTO kh)
         {
             try
             {
                 con.Open();
-                string SQL = string.Format("Insert into tblChiTietHoaDon values('{0}','{1}','{2}','{3}','{4}')", cthd.Mahoadon, cthd.Mathuoc_mathietbi, cthd.Malohang, cthd.Sl, cthd.Thanhtien);
-                
+                string SQL = string.Format("Insert into tblKhoHang values('{0}','{1}','{2}','{3}')", kh.Malohang, kh.Mathuoc_mathietbi, kh.Soluong, kh.Giaban);
                 SqlCommand cmd = new SqlCommand(SQL, con);
                 if (cmd.ExecuteNonQuery() > 0)
                     return true;
@@ -34,13 +34,13 @@ namespace QuanLyNT_DAL
             return false;
         }
 
-        public bool Delete(int mahd, int mathuoc_mathietbi)
+        public bool Delete(int malohang, int mathuoc_mathietbi)
         {
             try
             {
                 con.Open();
 
-                string SQL = string.Format("Delete from tblChiTietHoaDon where mahoadon ='{0}' and mathuoc_mathietbi ='{1}'", mahd, mathuoc_mathietbi);
+                string SQL = string.Format("Delete from tblKhoHang where malohang ='{0}' and mathuoc_mathietbi = '{1}'", malohang, mathuoc_mathietbi);
 
                 SqlCommand cmd = new SqlCommand(SQL, con);
                 if (cmd.ExecuteNonQuery() > 0)
@@ -55,22 +55,19 @@ namespace QuanLyNT_DAL
             return false;
         }
 
-        public bool Edit(int mahoadon, int mathuoc_mathietbi, string malohang, int sl , int thanhtien)
+        public bool Edit(string malohang, int mathuoc_mathietbi, int soluong, int giaban)
         {
             try
             {
                 con.Open();
 
-                string SQL = string.Format("UPDATE tblChiTietHoaDon SET malohang = '{2}', sl = '{3}',thanhtien = '{4}' where mahoadon = '{0}' and mathuoc_mathietbi = '{1}'", mahoadon, mathuoc_mathietbi, malohang, sl, thanhtien);
-
+                string SQL = string.Format("UPDATE tblKhoHang SET sl = '{2}', giaban ='{3}' where malohang = '{0}' and mathuoc_mathietbi = '{1}'", malohang, mathuoc_mathietbi, soluong, giaban);
                 SqlCommand cmd = new SqlCommand(SQL, con);
                 if (cmd.ExecuteNonQuery() > 0)
                     return true;
             }
 
-            catch (Exception e) {
-                return false;
-            }
+            catch (Exception e) { }
 
             finally
             { con.Close(); }
@@ -80,7 +77,7 @@ namespace QuanLyNT_DAL
 
         public DataTable Display(string sql)
         {
-            DataTable tblChiTietHoaDon = new DataTable();
+            DataTable tblKhoHang = new DataTable();
             SqlDataAdapter adt = new SqlDataAdapter();
 
             try
@@ -88,8 +85,8 @@ namespace QuanLyNT_DAL
                 con.Open();
                 SqlCommand cmd = new SqlCommand(sql, con);
                 adt.SelectCommand = cmd; //Command để thực thi câu lệnh SQL
-                adt.Fill(tblChiTietHoaDon);  //Fill vào một biến kiểu Datatable
-                return tblChiTietHoaDon;
+                adt.Fill(tblKhoHang);  //Fill vào một biến kiểu Datatable
+                return tblKhoHang;
             }
 
             catch (Exception e) { }
