@@ -35,5 +35,13 @@ namespace QuanLyNT_GUI
                 btNhanVien.Hide();
             }
         }
+
+        private void btHoaDon_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            HoaDon_GUI hd = new HoaDon_GUI();
+            hd.ShowDialog();
+            this.Show();
+        }
     }
 }

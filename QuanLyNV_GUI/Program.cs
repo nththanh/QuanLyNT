@@ -16,7 +16,7 @@ namespace QuanLyNT_GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DangNhap_GUI());
+            Application.Run(new HoaDon_GUI());
         }
     }
 }

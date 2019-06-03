@@ -80,6 +80,7 @@
             this.txtSLConLai = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.txtSL_Before = new System.Windows.Forms.TextBox();
+            this.cbTenThuoc = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -114,6 +115,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cbTenThuoc);
             this.groupBox2.Controls.Add(this.txtSL_Before);
             this.groupBox2.Controls.Add(this.label17);
             this.groupBox2.Controls.Add(this.txtSLConLai);
@@ -154,7 +156,7 @@
             this.cbMaLoHang.FormattingEnabled = true;
             this.cbMaLoHang.Location = new System.Drawing.Point(109, 94);
             this.cbMaLoHang.Name = "cbMaLoHang";
-            this.cbMaLoHang.Size = new System.Drawing.Size(121, 21);
+            this.cbMaLoHang.Size = new System.Drawing.Size(91, 21);
             this.cbMaLoHang.TabIndex = 38;
             // 
             // txtMaLoHang
@@ -189,20 +191,21 @@
             // 
             this.cbMaThuoc_MaThietBi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMaThuoc_MaThietBi.FormattingEnabled = true;
-            this.cbMaThuoc_MaThietBi.Location = new System.Drawing.Point(109, 67);
+            this.cbMaThuoc_MaThietBi.Location = new System.Drawing.Point(215, 94);
             this.cbMaThuoc_MaThietBi.Name = "cbMaThuoc_MaThietBi";
-            this.cbMaThuoc_MaThietBi.Size = new System.Drawing.Size(200, 21);
+            this.cbMaThuoc_MaThietBi.Size = new System.Drawing.Size(94, 21);
             this.cbMaThuoc_MaThietBi.TabIndex = 35;
             this.cbMaThuoc_MaThietBi.SelectedIndexChanged += new System.EventHandler(this.cbMaThuoc_MaThietBi_SelectedIndexChanged);
+            this.cbMaThuoc_MaThietBi.SelectedValueChanged += new System.EventHandler(this.cbMaThuoc_MaThietBi_SelectedValueChanged);
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(11, 72);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(52, 13);
+            this.label16.Size = new System.Drawing.Size(56, 13);
             this.label16.TabIndex = 34;
-            this.label16.Text = "Mã thuốc";
+            this.label16.Text = "Tên thuốc";
             // 
             // txtThanhTien
             // 
@@ -600,6 +603,15 @@
             this.txtSL_Before.Size = new System.Drawing.Size(77, 20);
             this.txtSL_Before.TabIndex = 44;
             // 
+            // cbTenThuoc
+            // 
+            this.cbTenThuoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTenThuoc.FormattingEnabled = true;
+            this.cbTenThuoc.Location = new System.Drawing.Point(109, 66);
+            this.cbTenThuoc.Name = "cbTenThuoc";
+            this.cbTenThuoc.Size = new System.Drawing.Size(200, 21);
+            this.cbTenThuoc.TabIndex = 45;
+            // 
             // HoaDon_GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -677,6 +689,7 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txtSLConLai;
         private System.Windows.Forms.TextBox txtSL_Before;
+        private System.Windows.Forms.ComboBox cbTenThuoc;
     }
 }
 

@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -42,11 +43,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChiTietHoaDon_DTO.cs" />
+    <Compile Include="ChucVu_DTO.cs" />
+    <Compile Include="DVT_DTO.cs" />
     <Compile Include="HoaDon_DTO.cs" />
+    <Compile Include="KhachHang_DTO.cs" />
     <Compile Include="KhoHang_DTO.cs" />
+    <Compile Include="LoaiThuoc_DTO.cs" />
     <Compile Include="NhanVien_DTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TaiKhoan_DTO.cs" />
+    <Compile Include="ThietBi_DTO.cs" />
+    <Compile Include="Thuoc_DTO.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

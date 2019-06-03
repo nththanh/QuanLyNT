@@ -40,6 +40,7 @@
             this.btHoaDon.TabIndex = 0;
             this.btHoaDon.Text = "Hóa đơn";
             this.btHoaDon.UseVisualStyleBackColor = true;
+            this.btHoaDon.Click += new System.EventHandler(this.btHoaDon_Click);
             // 
             // btNhanVien
             // 
