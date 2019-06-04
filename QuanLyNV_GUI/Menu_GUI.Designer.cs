@@ -36,7 +36,7 @@
             // btHoaDon
             // 
             this.btHoaDon.Location = new System.Drawing.Point(128, 143);
-            this.btHoaDon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btHoaDon.Margin = new System.Windows.Forms.Padding(4);
             this.btHoaDon.Name = "btHoaDon";
             this.btHoaDon.Size = new System.Drawing.Size(100, 28);
             this.btHoaDon.TabIndex = 0;
@@ -47,12 +47,13 @@
             // btNhanVien
             // 
             this.btNhanVien.Location = new System.Drawing.Point(128, 192);
-            this.btNhanVien.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btNhanVien.Margin = new System.Windows.Forms.Padding(4);
             this.btNhanVien.Name = "btNhanVien";
             this.btNhanVien.Size = new System.Drawing.Size(100, 28);
             this.btNhanVien.TabIndex = 1;
             this.btNhanVien.Text = "Nhân viên";
             this.btNhanVien.UseVisualStyleBackColor = true;
+            this.btNhanVien.Click += new System.EventHandler(this.btNhanVien_Click);
             // 
             // btnBaoCaoDoanhThu
             // 
@@ -73,7 +74,7 @@
             this.Controls.Add(this.btnBaoCaoDoanhThu);
             this.Controls.Add(this.btNhanVien);
             this.Controls.Add(this.btHoaDon);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Menu_GUI";
             this.Text = "Menu_GUI";
             this.Load += new System.EventHandler(this.Menu_GUI_Load);

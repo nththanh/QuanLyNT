@@ -9,7 +9,7 @@ using QuanLyNT_DTO;
 
 namespace QuanLyNT_DAL
 {
-    class ChucVu_DAL : DBConnection
+    public class ChucVu_DAL : DBConnection
     {
         public bool Insert(ChucVu_DTO cv)
         {
