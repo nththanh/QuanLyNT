@@ -43,5 +43,13 @@ namespace QuanLyNT_GUI
             hd.ShowDialog();
             this.Show();
         }
+
+        private void btnBaoCaoDoanhThu_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            BaoCaoDoanhThu_GUI bc = new BaoCaoDoanhThu_GUI();
+            bc.ShowDialog();
+            this.Show();
+        }
     }
 }
