@@ -31,6 +31,12 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbTenThuoc = new System.Windows.Forms.ComboBox();
+            this.txtSL_Before = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtSLConLai = new System.Windows.Forms.TextBox();
+            this.cbSoLuong = new System.Windows.Forms.ComboBox();
+            this.cbGiaBan = new System.Windows.Forms.ComboBox();
             this.btEdit_CTHD = new System.Windows.Forms.Button();
             this.cbMaLoHang = new System.Windows.Forms.ComboBox();
             this.txtMaLoHang = new System.Windows.Forms.TextBox();
@@ -75,12 +81,8 @@
             this.label12 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.btEdit_HD = new System.Windows.Forms.Button();
-            this.cbGiaBan = new System.Windows.Forms.ComboBox();
-            this.cbSoLuong = new System.Windows.Forms.ComboBox();
-            this.txtSLConLai = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.txtSL_Before = new System.Windows.Forms.TextBox();
-            this.cbTenThuoc = new System.Windows.Forms.ComboBox();
+            this.cbNuocSanXuat = new System.Windows.Forms.ComboBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -115,6 +117,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cbNuocSanXuat);
+            this.groupBox2.Controls.Add(this.label18);
             this.groupBox2.Controls.Add(this.cbTenThuoc);
             this.groupBox2.Controls.Add(this.txtSL_Before);
             this.groupBox2.Controls.Add(this.label17);
@@ -141,6 +145,57 @@
             this.groupBox2.Text = "Chi tiết hóa đơn";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
+            // cbTenThuoc
+            // 
+            this.cbTenThuoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTenThuoc.FormattingEnabled = true;
+            this.cbTenThuoc.Location = new System.Drawing.Point(109, 66);
+            this.cbTenThuoc.Name = "cbTenThuoc";
+            this.cbTenThuoc.Size = new System.Drawing.Size(200, 21);
+            this.cbTenThuoc.TabIndex = 45;
+            this.cbTenThuoc.SelectedIndexChanged += new System.EventHandler(this.cbTenThuoc_SelectedIndexChanged);
+            // 
+            // txtSL_Before
+            // 
+            this.txtSL_Before.Location = new System.Drawing.Point(441, 14);
+            this.txtSL_Before.Name = "txtSL_Before";
+            this.txtSL_Before.Size = new System.Drawing.Size(77, 20);
+            this.txtSL_Before.TabIndex = 44;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(524, 18);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(39, 13);
+            this.label17.TabIndex = 43;
+            this.label17.Text = "Còn lại";
+            // 
+            // txtSLConLai
+            // 
+            this.txtSLConLai.Location = new System.Drawing.Point(571, 15);
+            this.txtSLConLai.Name = "txtSLConLai";
+            this.txtSLConLai.ReadOnly = true;
+            this.txtSLConLai.Size = new System.Drawing.Size(70, 20);
+            this.txtSLConLai.TabIndex = 42;
+            // 
+            // cbSoLuong
+            // 
+            this.cbSoLuong.FormattingEnabled = true;
+            this.cbSoLuong.Location = new System.Drawing.Point(546, 93);
+            this.cbSoLuong.Name = "cbSoLuong";
+            this.cbSoLuong.Size = new System.Drawing.Size(95, 21);
+            this.cbSoLuong.TabIndex = 41;
+            this.cbSoLuong.SelectedIndexChanged += new System.EventHandler(this.cbSoLuong_SelectedIndexChanged);
+            // 
+            // cbGiaBan
+            // 
+            this.cbGiaBan.FormattingEnabled = true;
+            this.cbGiaBan.Location = new System.Drawing.Point(441, 94);
+            this.cbGiaBan.Name = "cbGiaBan";
+            this.cbGiaBan.Size = new System.Drawing.Size(99, 21);
+            this.cbGiaBan.TabIndex = 40;
+            // 
             // btEdit_CTHD
             // 
             this.btEdit_CTHD.Location = new System.Drawing.Point(296, 128);
@@ -154,7 +209,7 @@
             // cbMaLoHang
             // 
             this.cbMaLoHang.FormattingEnabled = true;
-            this.cbMaLoHang.Location = new System.Drawing.Point(109, 94);
+            this.cbMaLoHang.Location = new System.Drawing.Point(109, 14);
             this.cbMaLoHang.Name = "cbMaLoHang";
             this.cbMaLoHang.Size = new System.Drawing.Size(91, 21);
             this.cbMaLoHang.TabIndex = 38;
@@ -191,7 +246,7 @@
             // 
             this.cbMaThuoc_MaThietBi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMaThuoc_MaThietBi.FormattingEnabled = true;
-            this.cbMaThuoc_MaThietBi.Location = new System.Drawing.Point(215, 94);
+            this.cbMaThuoc_MaThietBi.Location = new System.Drawing.Point(215, 14);
             this.cbMaThuoc_MaThietBi.Name = "cbMaThuoc_MaThietBi";
             this.cbMaThuoc_MaThietBi.Size = new System.Drawing.Size(94, 21);
             this.cbMaThuoc_MaThietBi.TabIndex = 35;
@@ -562,55 +617,24 @@
             this.btEdit_HD.UseVisualStyleBackColor = true;
             this.btEdit_HD.Click += new System.EventHandler(this.btEditHD_Click);
             // 
-            // cbGiaBan
+            // cbNuocSanXuat
             // 
-            this.cbGiaBan.FormattingEnabled = true;
-            this.cbGiaBan.Location = new System.Drawing.Point(441, 94);
-            this.cbGiaBan.Name = "cbGiaBan";
-            this.cbGiaBan.Size = new System.Drawing.Size(99, 21);
-            this.cbGiaBan.TabIndex = 40;
+            this.cbNuocSanXuat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbNuocSanXuat.FormattingEnabled = true;
+            this.cbNuocSanXuat.Location = new System.Drawing.Point(109, 93);
+            this.cbNuocSanXuat.Name = "cbNuocSanXuat";
+            this.cbNuocSanXuat.Size = new System.Drawing.Size(200, 21);
+            this.cbNuocSanXuat.TabIndex = 47;
+            this.cbNuocSanXuat.SelectedIndexChanged += new System.EventHandler(this.cbNuocSanXuat_SelectedIndexChanged);
             // 
-            // cbSoLuong
+            // label18
             // 
-            this.cbSoLuong.FormattingEnabled = true;
-            this.cbSoLuong.Location = new System.Drawing.Point(546, 93);
-            this.cbSoLuong.Name = "cbSoLuong";
-            this.cbSoLuong.Size = new System.Drawing.Size(95, 21);
-            this.cbSoLuong.TabIndex = 41;
-            this.cbSoLuong.SelectedIndexChanged += new System.EventHandler(this.cbSoLuong_SelectedIndexChanged);
-            // 
-            // txtSLConLai
-            // 
-            this.txtSLConLai.Location = new System.Drawing.Point(571, 15);
-            this.txtSLConLai.Name = "txtSLConLai";
-            this.txtSLConLai.ReadOnly = true;
-            this.txtSLConLai.Size = new System.Drawing.Size(70, 20);
-            this.txtSLConLai.TabIndex = 42;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(524, 18);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(39, 13);
-            this.label17.TabIndex = 43;
-            this.label17.Text = "Còn lại";
-            // 
-            // txtSL_Before
-            // 
-            this.txtSL_Before.Location = new System.Drawing.Point(441, 14);
-            this.txtSL_Before.Name = "txtSL_Before";
-            this.txtSL_Before.Size = new System.Drawing.Size(77, 20);
-            this.txtSL_Before.TabIndex = 44;
-            // 
-            // cbTenThuoc
-            // 
-            this.cbTenThuoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbTenThuoc.FormattingEnabled = true;
-            this.cbTenThuoc.Location = new System.Drawing.Point(109, 66);
-            this.cbTenThuoc.Name = "cbTenThuoc";
-            this.cbTenThuoc.Size = new System.Drawing.Size(200, 21);
-            this.cbTenThuoc.TabIndex = 45;
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(11, 99);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(76, 13);
+            this.label18.TabIndex = 46;
+            this.label18.Text = "Nước sản xuất";
             // 
             // HoaDon_GUI
             // 
@@ -690,6 +714,8 @@
         private System.Windows.Forms.TextBox txtSLConLai;
         private System.Windows.Forms.TextBox txtSL_Before;
         private System.Windows.Forms.ComboBox cbTenThuoc;
+        private System.Windows.Forms.ComboBox cbNuocSanXuat;
+        private System.Windows.Forms.Label label18;
     }
 }
 

@@ -32,11 +32,66 @@ namespace QuanLyNT_GUI
             }
             else
             {
-                btNhanVien.Hide();
+                mtQuanLy.Visible = false;
+                mtBaoCao.Visible = false;
+                mtTraHangNCC.Visible = false;
+                mtNhapHang.Visible = false;
+                mtTraCuuNV.Visible = false;
+                mtTraCuuCV.Visible = false;
+                mtTraCuuTK.Visible = false;
+                mtTraCuuLH.Visible = false;
             }
+        }      
+
+        private void báoCáoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
 
-        private void btHoaDon_Click(object sender, EventArgs e)
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void báoCáoDoanhThuTheoNgàyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //int Ngay = dtpNgayLap.Value.Day;
+            //int Thang = dtpNgayLap.Value.Month;
+            //int Nam = dtpNgayLap.Value.Year;
+            //BaoCaoDoanhThuTheoNgayViewer viewer = new BaoCaoDoanhThuTheoNgayViewer(Ngay, Thang, Nam);
+            //viewer.Show();
+        }
+
+        private void báoCáoDoanhThuTheoThángToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //int Thang = dtpNgayLap.Value.Month;
+            //int Nam = dtpNgayLap.Value.Year;
+            //BaoCaoDoanhThuTheoThangViewer viewer = new BaoCaoDoanhThuTheoThangViewer(Thang, Nam);
+            //viewer.Show();
+        }
+
+        private void báoCáiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //BaoCaoDoanhThuTongQuanViewer viewer = new BaoCaoDoanhThuTongQuanViewer();
+            //viewer.Show();
+        }
+
+        private void lậpPhiếuNhậpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mtBaoCao_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mtQuanLy_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lậpHóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
             HoaDon_GUI hd = new HoaDon_GUI();

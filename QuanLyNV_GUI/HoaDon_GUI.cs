@@ -65,11 +65,11 @@ namespace QuanLyNT_GUI
             btDelete_HD.Enabled = false;
             btThemMoi.Enabled = false;
 
-            cbMaLoHang.Hide();
-            txtSL_Before.Hide();
-            cbGiaBan.Hide();
-            cbSoLuong.Hide();
-            cbMaThuoc_MaThietBi.Hide();
+            //cbMaLoHang.Hide();
+            //txtSL_Before.Hide();
+            //cbGiaBan.Hide();
+            //cbSoLuong.Hide();
+            //cbMaThuoc_MaThietBi.Hide();
 
             DataTable tblHD = new DataTable();
             tblHD = hd_BUS.Display("Select * from tblHoaDon");           
@@ -219,20 +219,30 @@ namespace QuanLyNT_GUI
             
             
             DataTable tblThuoc = new DataTable();
-            tblThuoc = thuoc_DAL.Display("Select * from tblThuoc");
+            tblThuoc = thuoc_DAL.Display("Select tenthuoc from tblThuoc group by tenthuoc");
             cbTenThuoc.DataSource = tblThuoc;
             cbTenThuoc.DisplayMember = "tenthuoc";
             cbTenThuoc.ValueMember = "tenthuoc";
-           
-            cbMaThuoc_MaThietBi.DataSource = tblThuoc;
+
+            DataTable tblThuoc2 = new DataTable();
+            tblThuoc2 = khohang_DAL.Display("select * from tblThuoc where tenthuoc = '" + cbTenThuoc.Text + "'");
+            cbNuocSanXuat.DataSource = tblThuoc2;
+            cbNuocSanXuat.DisplayMember = "noisanxuat";
+            cbNuocSanXuat.ValueMember = "noisanxuat";
+
+            DataTable tblThuoc3 = new DataTable();
+            tblThuoc3 = khohang_DAL.Display("select * from tblThuoc where tenthuoc = '" + cbTenThuoc.Text + "' and noisanxuat = '" + cbNuocSanXuat.Text + "'");    
+            cbMaThuoc_MaThietBi.DataSource = tblThuoc3;
             cbMaThuoc_MaThietBi.DisplayMember = "mathuoc";
             cbMaThuoc_MaThietBi.ValueMember = "mathuoc";
-
+           
             DataTable tblKhoHang = new DataTable();
-            tblKhoHang = khohang_DAL.Display("Select malohang from tblKhoHang where mathuoc_mathietbi = " + cbMaThuoc_MaThietBi.Text + " group by malohang");
+            tblKhoHang = khohang_DAL.Display("Select malohang from tblKhoHang where mathuoc_mathietbi = " + cbMaThuoc_MaThietBi.Text);
             cbMaLoHang.DataSource = tblKhoHang;
             cbMaLoHang.DisplayMember = "malohang";
             cbMaLoHang.ValueMember = "malohang";
+
+
         }
 
         private void btInsert_CTHD_Click(object sender, EventArgs e)
@@ -301,14 +311,12 @@ namespace QuanLyNT_GUI
         private void cbMaThuoc_MaThietBi_SelectedValueChanged(object sender, EventArgs e)
         {
             DataTable tblKhoHang = new DataTable();
-            tblKhoHang = khohang_DAL.Display("Select * from tblKhoHang where mathuoc_mathietbi = " + cbMaThuoc_MaThietBi.Text);
+            tblKhoHang = khohang_DAL.Display("Select * from tblKhoHang where mathuoc_mathietbi = '" + cbMaThuoc_MaThietBi.Text + "'");
             cbMaLoHang.DataSource = tblKhoHang;
             cbMaLoHang.DisplayMember = "malohang";
             cbMaLoHang.ValueMember = "malohang";
 
-            object malohang_min;
-            malohang_min = tblKhoHang.Compute("Min(malohang)", "");
-            txtMaLoHang.Text = malohang_min.ToString();
+            txtMaLoHang.Text = cbMaLoHang.Text;
 
             DataTable giaban_soluong;
             giaban_soluong = khohang_DAL.Display("Select * from tblKhoHang where mathuoc_mathietbi = " + cbMaThuoc_MaThietBi.Text
@@ -334,45 +342,49 @@ namespace QuanLyNT_GUI
         }
 
         private void btEdit_CTHD_Click(object sender, EventArgs e)
-        {           
+        {
             if (txtSoLuong.Text != "")
             {
-                int mahoadon = Convert.ToInt32(txtMaHD.Text);
-                int mathuoc_mathietbi = Convert.ToInt32(cbMaThuoc_MaThietBi.Text);
-                string malohang = txtMaLoHang.Text;   
-                int soluong = Convert.ToInt32(txtSoLuong.Text);
-                int thanhtien = Convert.ToInt32(txtThanhTien.Text);
-
-                int soluong_kho = Convert.ToInt32(cbSoLuong.Text) + Convert.ToInt32(txtSL_Before.Text) - Convert.ToInt32(txtSoLuong.Text);
-                khohang_DAL.Edit(malohang, mathuoc_mathietbi, soluong_kho, Convert.ToInt32(cbGiaBan.Text));
-                cbMaThuoc_MaThietBi_SelectedValueChanged(sender, e);
-
-                int tongthanhtien = Convert.ToInt32(txtTongThanhTien.Text) - Convert.ToInt32(txtSL_Before.Text) * Convert.ToInt32(cbGiaBan.Text) + Convert.ToInt32(txtThanhTien.Text);
-                hd_BUS.Edit(mahoadon, Convert.ToInt32(cbMaNV.Text), Convert.ToInt32(cbMaKH.Text), Convert.ToDateTime(dtpNgayLap.Text), tongthanhtien, txtGhiChu.Text);
-                txtTongThanhTien.Text = tongthanhtien.ToString();
-                //HoaDon_DTO nv_DTO = new HoaDon_DTO(txtMaHD.Text, cbMaNV.Text);                
-                if (cthd_DAL.Edit(mahoadon, mathuoc_mathietbi, malohang, soluong, thanhtien))
+                if (Convert.ToInt32(txtSoLuong.Text) <= Convert.ToInt32(txtSLConLai.Text) + Convert.ToInt32(txtSL_Before.Text))
                 {
-                    DataTable tblCTHD = new DataTable();
-                    tblCTHD = cthd_DAL.Display("Select * from tblChiTietHoaDon where mahoadon = " + txtMaHD.Text);
-                    dataGridView1.DataSource = tblCTHD;
-                    dataGridView1.AllowUserToAddRows = false;
-                    btEdit_CTHD.Enabled = false;
-                    btDelete_CTHD.Enabled = false;
+                    int mahoadon = Convert.ToInt32(txtMaHD.Text);
+                    int mathuoc_mathietbi = Convert.ToInt32(cbMaThuoc_MaThietBi.Text);
+                    string malohang = txtMaLoHang.Text;
+                    int soluong = Convert.ToInt32(txtSoLuong.Text);
+                    int thanhtien = Convert.ToInt32(txtThanhTien.Text);
+
+                    int soluong_kho = Convert.ToInt32(cbSoLuong.Text) + Convert.ToInt32(txtSL_Before.Text) - Convert.ToInt32(txtSoLuong.Text);
+                    khohang_DAL.Edit(malohang, mathuoc_mathietbi, soluong_kho, Convert.ToInt32(cbGiaBan.Text));
+                    cbMaThuoc_MaThietBi_SelectedValueChanged(sender, e);
+
+                    int tongthanhtien = Convert.ToInt32(txtTongThanhTien.Text) - Convert.ToInt32(txtSL_Before.Text) * Convert.ToInt32(cbGiaBan.Text) + Convert.ToInt32(txtThanhTien.Text);
+                    hd_BUS.Edit(mahoadon, Convert.ToInt32(cbMaNV.Text), Convert.ToInt32(cbMaKH.Text), Convert.ToDateTime(dtpNgayLap.Text), tongthanhtien, txtGhiChu.Text);
+                    txtTongThanhTien.Text = tongthanhtien.ToString();
+                    //HoaDon_DTO nv_DTO = new HoaDon_DTO(txtMaHD.Text, cbMaNV.Text);                
+                    if (cthd_DAL.Edit(mahoadon, mathuoc_mathietbi, malohang, soluong, thanhtien))
+                    {
+                        DataTable tblCTHD = new DataTable();
+                        tblCTHD = cthd_DAL.Display("Select * from tblChiTietHoaDon where mahoadon = " + txtMaHD.Text);
+                        dataGridView1.DataSource = tblCTHD;
+                        dataGridView1.AllowUserToAddRows = false;
+                        btEdit_CTHD.Enabled = false;
+                        btDelete_CTHD.Enabled = false;
+                    }
+                    else
+                        MessageBox.Show("Sửa thất bại");
                 }
                 else
-                    MessageBox.Show("Sửa thất bại");
+                    MessageBox.Show("Số lượng không đủ");
             }
             else
             {
                 MessageBox.Show("Xin điền đầy đủ thông tin");
             }
-
-        }
+        }  
 
         private void groupBox2_Enter(object sender, EventArgs e)
         {
-
+            
         }
 
         private void cbSoLuong_SelectedIndexChanged(object sender, EventArgs e)
@@ -422,6 +434,36 @@ namespace QuanLyNT_GUI
            
         }
 
-        
+        private void cbTenThuoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataTable tblThuoc2 = new DataTable();
+            tblThuoc2 = khohang_DAL.Display("select * from tblThuoc where tenthuoc = '" + cbTenThuoc.Text + "'");
+            cbNuocSanXuat.DataSource = tblThuoc2;
+            cbNuocSanXuat.DisplayMember = "noisanxuat";
+            cbNuocSanXuat.ValueMember = "noisanxuat";
+            txtMaLoHang.Text = cbMaLoHang.Text;
+
+            //DataTable tblKhoHang = new DataTable();
+            //tblKhoHang = khohang_DAL.Display("Select malohang from tblKhoHang where mathuoc_mathietbi = " + cbMaThuoc_MaThietBi.Text);
+            //cbMaLoHang.DataSource = tblKhoHang;
+            //cbMaLoHang.DisplayMember = "malohang";
+            //cbMaLoHang.ValueMember = "malohang";
+        }
+
+        private void cbNuocSanXuat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataTable tblThuoc3 = new DataTable();
+            tblThuoc3 = khohang_DAL.Display("select * from tblThuoc where tenthuoc = '" + cbTenThuoc.Text + "' and noisanxuat = '" + cbNuocSanXuat.Text + "'");
+            cbMaThuoc_MaThietBi.DataSource = tblThuoc3;
+            cbMaThuoc_MaThietBi.DisplayMember = "mathuoc";
+            cbMaThuoc_MaThietBi.ValueMember = "mathuoc";
+            txtMaLoHang.Text = cbMaLoHang.Text;
+
+            //DataTable tblKhoHang = new DataTable();
+            //tblKhoHang = khohang_DAL.Display("Select malohang from tblKhoHang where mathuoc_mathietbi = '" + cbMaThuoc_MaThietBi.Text + "'");
+            //cbMaLoHang.DataSource = tblKhoHang;
+            //cbMaLoHang.DisplayMember = "malohang";
+            //cbMaLoHang.ValueMember = "malohang";
+        }
     }
 }
