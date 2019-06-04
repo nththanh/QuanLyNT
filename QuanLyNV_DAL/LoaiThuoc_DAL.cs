@@ -9,7 +9,7 @@ using QuanLyNT_DTO;
 
 namespace QuanLyNT_DAL
 {
-    class LoaiThuoc_DAL : DBConnection
+    public class LoaiThuoc_DAL : DBConnection
     {
         public bool Insert(LoaiThuoc_DTO lt)
         {
