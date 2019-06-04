@@ -64,12 +64,14 @@ namespace QuanLyNT_GUI
             btEdit_HD.Enabled = false;
             btDelete_HD.Enabled = false;
             btThemMoi.Enabled = false;
+            btInsert_CTHD.Enabled = false;
 
-            //cbMaLoHang.Hide();
-            //txtSL_Before.Hide();
-            //cbGiaBan.Hide();
-            //cbSoLuong.Hide();
-            //cbMaThuoc_MaThietBi.Hide();
+            cbMaLoHang.Hide();
+            txtSL_Before.Hide();
+            cbGiaBan.Hide();
+            cbSoLuong.Hide();
+            cbMaThuoc_MaThietBi.Hide();
+            txtMaThuoc.Hide();
 
             DataTable tblHD = new DataTable();
             tblHD = hd_BUS.Display("Select * from tblHoaDon");           
@@ -131,7 +133,7 @@ namespace QuanLyNT_GUI
             {
                 txtSL_Before.Text = dataGridView1.CurrentRow.Cells["sl"].Value.ToString();
                 txtMaHD.Text = dataGridView1.CurrentRow.Cells["mahoadon"].Value.ToString();
-                cbMaThuoc_MaThietBi.Text = dataGridView1.CurrentRow.Cells["mathuoc_mathietbi"].Value.ToString();
+                txtMaThuoc.Text = dataGridView1.CurrentRow.Cells["mathuoc_mathietbi"].Value.ToString();
                 txtMaLoHang.Text = dataGridView1.CurrentRow.Cells["malohang"].Value.ToString();
                 txtSoLuong.Text = dataGridView1.CurrentRow.Cells["sl"].Value.ToString();
                 txtThanhTien.Text = dataGridView1.CurrentRow.Cells["thanhtien"].Value.ToString();
@@ -201,6 +203,37 @@ namespace QuanLyNT_GUI
                     dataGridView2.DataSource = tblHD;
                     dataGridView2.AllowUserToAddRows = false;
                     MessageBox.Show("Thêm thành công");
+
+                    DataTable tblCTHD = new DataTable();
+                    tblCTHD = cthd_DAL.Display("Select * from tblChiTietHoaDon where mahoadon = " + txtMaHD.Text);
+                    dataGridView1.DataSource = tblCTHD;
+                    dataGridView1.AllowUserToAddRows = false;
+
+
+                    DataTable tblThuoc = new DataTable();
+                    tblThuoc = thuoc_DAL.Display("Select tenthuoc from tblThuoc group by tenthuoc");
+                    cbTenThuoc.DataSource = tblThuoc;
+                    cbTenThuoc.DisplayMember = "tenthuoc";
+                    cbTenThuoc.ValueMember = "tenthuoc";
+
+                    DataTable tblThuoc2 = new DataTable();
+                    tblThuoc2 = thuoc_DAL.Display("select * from tblThuoc where tenthuoc = '" + cbTenThuoc.Text + "'");
+                    cbNuocSanXuat.DataSource = tblThuoc2;
+                    cbNuocSanXuat.DisplayMember = "noisanxuat";
+                    cbNuocSanXuat.ValueMember = "noisanxuat";
+
+                    DataTable tblThuoc3 = new DataTable();
+                    tblThuoc3 = thuoc_DAL.Display("select * from tblThuoc where tenthuoc = '" + cbTenThuoc.Text + "' and noisanxuat = '" + cbNuocSanXuat.Text + "'");
+                    cbMaThuoc_MaThietBi.DataSource = tblThuoc3;
+                    cbMaThuoc_MaThietBi.DisplayMember = "mathuoc";
+                    cbMaThuoc_MaThietBi.ValueMember = "mathuoc";
+
+                    DataTable tblKhoHang = new DataTable();
+                    tblKhoHang = khohang_DAL.Display("Select malohang from tblKhoHang where mathuoc_mathietbi = " + cbMaThuoc_MaThietBi.Text);
+                    cbMaLoHang.DataSource = tblKhoHang;
+                    cbMaLoHang.DisplayMember = "malohang";
+                    cbMaLoHang.ValueMember = "malohang";
+
                     btDelete_HD.Enabled = true;
                     btInsert_HD.Enabled = false;
                     btInsert_CTHD.Enabled = true;
@@ -212,35 +245,7 @@ namespace QuanLyNT_GUI
             {
                 MessageBox.Show("Xin điền đầy đủ thông tin");
             }
-            DataTable tblCTHD = new DataTable();
-            tblCTHD = cthd_DAL.Display("Select * from tblChiTietHoaDon where mahoadon = " + txtMaHD.Text);
-            dataGridView1.DataSource = tblCTHD;
-            dataGridView1.AllowUserToAddRows = false;
             
-            
-            DataTable tblThuoc = new DataTable();
-            tblThuoc = thuoc_DAL.Display("Select tenthuoc from tblThuoc group by tenthuoc");
-            cbTenThuoc.DataSource = tblThuoc;
-            cbTenThuoc.DisplayMember = "tenthuoc";
-            cbTenThuoc.ValueMember = "tenthuoc";
-
-            DataTable tblThuoc2 = new DataTable();
-            tblThuoc2 = khohang_DAL.Display("select * from tblThuoc where tenthuoc = '" + cbTenThuoc.Text + "'");
-            cbNuocSanXuat.DataSource = tblThuoc2;
-            cbNuocSanXuat.DisplayMember = "noisanxuat";
-            cbNuocSanXuat.ValueMember = "noisanxuat";
-
-            DataTable tblThuoc3 = new DataTable();
-            tblThuoc3 = khohang_DAL.Display("select * from tblThuoc where tenthuoc = '" + cbTenThuoc.Text + "' and noisanxuat = '" + cbNuocSanXuat.Text + "'");    
-            cbMaThuoc_MaThietBi.DataSource = tblThuoc3;
-            cbMaThuoc_MaThietBi.DisplayMember = "mathuoc";
-            cbMaThuoc_MaThietBi.ValueMember = "mathuoc";
-           
-            DataTable tblKhoHang = new DataTable();
-            tblKhoHang = khohang_DAL.Display("Select malohang from tblKhoHang where mathuoc_mathietbi = " + cbMaThuoc_MaThietBi.Text);
-            cbMaLoHang.DataSource = tblKhoHang;
-            cbMaLoHang.DisplayMember = "malohang";
-            cbMaLoHang.ValueMember = "malohang";
 
 
         }
@@ -310,6 +315,7 @@ namespace QuanLyNT_GUI
 
         private void cbMaThuoc_MaThietBi_SelectedValueChanged(object sender, EventArgs e)
         {
+            txtMaThuoc.Text = cbMaThuoc_MaThietBi.Text;
             DataTable tblKhoHang = new DataTable();
             tblKhoHang = khohang_DAL.Display("Select * from tblKhoHang where mathuoc_mathietbi = '" + cbMaThuoc_MaThietBi.Text + "'");
             cbMaLoHang.DataSource = tblKhoHang;
@@ -399,13 +405,13 @@ namespace QuanLyNT_GUI
             if (tblCTHD.Rows.Count > 0)
             {
                 string malohang = txtMaLoHang.Text;
-                int mathuoc_mathietbi = Convert.ToInt32(cbMaThuoc_MaThietBi.Text);
+                int mathuoc_mathietbi = Convert.ToInt32(txtMaThuoc.Text);
                 int soluong = Convert.ToInt32(cbSoLuong.Text) + Convert.ToInt32(txtSoLuong.Text);
                 int giaban = Convert.ToInt32(cbGiaBan.Text);
 
                 if (khohang_DAL.Edit(malohang, mathuoc_mathietbi, soluong, giaban))
                 {
-                    cthd_DAL.Delete(Convert.ToInt32(txtMaHD.Text), Convert.ToInt32(cbMaThuoc_MaThietBi.Text));
+                    cthd_DAL.Delete(Convert.ToInt32(txtMaHD.Text), Convert.ToInt32(txtMaThuoc.Text));
                     cbMaThuoc_MaThietBi_SelectedValueChanged(sender, e);
 
                     DataTable tblCTHD2 = new DataTable();
@@ -437,7 +443,7 @@ namespace QuanLyNT_GUI
         private void cbTenThuoc_SelectedIndexChanged(object sender, EventArgs e)
         {
             DataTable tblThuoc2 = new DataTable();
-            tblThuoc2 = khohang_DAL.Display("select * from tblThuoc where tenthuoc = '" + cbTenThuoc.Text + "'");
+            tblThuoc2 = thuoc_DAL.Display("select * from tblThuoc where tenthuoc = '" + cbTenThuoc.Text + "'");
             cbNuocSanXuat.DataSource = tblThuoc2;
             cbNuocSanXuat.DisplayMember = "noisanxuat";
             cbNuocSanXuat.ValueMember = "noisanxuat";
@@ -453,7 +459,7 @@ namespace QuanLyNT_GUI
         private void cbNuocSanXuat_SelectedIndexChanged(object sender, EventArgs e)
         {
             DataTable tblThuoc3 = new DataTable();
-            tblThuoc3 = khohang_DAL.Display("select * from tblThuoc where tenthuoc = '" + cbTenThuoc.Text + "' and noisanxuat = '" + cbNuocSanXuat.Text + "'");
+            tblThuoc3 = thuoc_DAL.Display("select * from tblThuoc where tenthuoc = '" + cbTenThuoc.Text + "' and noisanxuat = '" + cbNuocSanXuat.Text + "'");
             cbMaThuoc_MaThietBi.DataSource = tblThuoc3;
             cbMaThuoc_MaThietBi.DisplayMember = "mathuoc";
             cbMaThuoc_MaThietBi.ValueMember = "mathuoc";

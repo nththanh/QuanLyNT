@@ -31,6 +31,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbNuocSanXuat = new System.Windows.Forms.ComboBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.cbTenThuoc = new System.Windows.Forms.ComboBox();
             this.txtSL_Before = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -81,8 +83,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.btEdit_HD = new System.Windows.Forms.Button();
-            this.cbNuocSanXuat = new System.Windows.Forms.ComboBox();
-            this.label18 = new System.Windows.Forms.Label();
+            this.txtMaThuoc = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -117,6 +118,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtMaThuoc);
             this.groupBox2.Controls.Add(this.cbNuocSanXuat);
             this.groupBox2.Controls.Add(this.label18);
             this.groupBox2.Controls.Add(this.cbTenThuoc);
@@ -144,6 +146,25 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chi tiết hóa đơn";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // cbNuocSanXuat
+            // 
+            this.cbNuocSanXuat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbNuocSanXuat.FormattingEnabled = true;
+            this.cbNuocSanXuat.Location = new System.Drawing.Point(109, 93);
+            this.cbNuocSanXuat.Name = "cbNuocSanXuat";
+            this.cbNuocSanXuat.Size = new System.Drawing.Size(200, 21);
+            this.cbNuocSanXuat.TabIndex = 47;
+            this.cbNuocSanXuat.SelectedIndexChanged += new System.EventHandler(this.cbNuocSanXuat_SelectedIndexChanged);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(11, 99);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(76, 13);
+            this.label18.TabIndex = 46;
+            this.label18.Text = "Nước sản xuất";
             // 
             // cbTenThuoc
             // 
@@ -617,24 +638,12 @@
             this.btEdit_HD.UseVisualStyleBackColor = true;
             this.btEdit_HD.Click += new System.EventHandler(this.btEditHD_Click);
             // 
-            // cbNuocSanXuat
+            // txtMaThuoc
             // 
-            this.cbNuocSanXuat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbNuocSanXuat.FormattingEnabled = true;
-            this.cbNuocSanXuat.Location = new System.Drawing.Point(109, 93);
-            this.cbNuocSanXuat.Name = "cbNuocSanXuat";
-            this.cbNuocSanXuat.Size = new System.Drawing.Size(200, 21);
-            this.cbNuocSanXuat.TabIndex = 47;
-            this.cbNuocSanXuat.SelectedIndexChanged += new System.EventHandler(this.cbNuocSanXuat_SelectedIndexChanged);
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(11, 99);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(76, 13);
-            this.label18.TabIndex = 46;
-            this.label18.Text = "Nước sản xuất";
+            this.txtMaThuoc.Location = new System.Drawing.Point(325, 14);
+            this.txtMaThuoc.Name = "txtMaThuoc";
+            this.txtMaThuoc.Size = new System.Drawing.Size(91, 20);
+            this.txtMaThuoc.TabIndex = 37;
             // 
             // HoaDon_GUI
             // 
@@ -643,7 +652,7 @@
             this.ClientSize = new System.Drawing.Size(738, 662);
             this.Controls.Add(this.tabControl1);
             this.Name = "HoaDon_GUI";
-            this.Text = "Nhân viên";
+            this.Text = "Hóa đơn";
             this.Load += new System.EventHandler(this.HoaDon_GUI_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -716,6 +725,7 @@
         private System.Windows.Forms.ComboBox cbTenThuoc;
         private System.Windows.Forms.ComboBox cbNuocSanXuat;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox txtMaThuoc;
     }
 }
 
