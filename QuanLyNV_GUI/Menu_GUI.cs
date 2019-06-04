@@ -106,5 +106,13 @@ namespace QuanLyNT_GUI
             bc.ShowDialog();
             this.Show();
         }
+
+        private void btNhanVien_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            QuanLyNhanVien_GUI qlnv = new QuanLyNhanVien_GUI();
+            qlnv.ShowDialog();
+            this.Show();
+        }
     }
 }
