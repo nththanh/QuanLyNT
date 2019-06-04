@@ -24,7 +24,7 @@ namespace QuanLyNT_DAL
                     return true;
             }
 
-            catch (Exception e)
+            catch (Exception)
             {  }
 
             finally
@@ -48,7 +48,7 @@ namespace QuanLyNT_DAL
                     return true;
             }
 
-            catch (Exception e) { }
+            catch (Exception) { }
 
             finally
             { con.Close(); }
@@ -69,7 +69,7 @@ namespace QuanLyNT_DAL
                     return true;
             }
 
-            catch (Exception e) { }
+            catch (Exception) { }
 
             finally
             { con.Close(); }
@@ -91,7 +91,7 @@ namespace QuanLyNT_DAL
                 return tblHoaDon;
             }
 
-            catch (Exception e) { }
+            catch (Exception) { }
 
             finally
             { con.Close(); }
