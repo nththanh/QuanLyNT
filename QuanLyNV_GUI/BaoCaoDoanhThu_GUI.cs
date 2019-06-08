@@ -48,5 +48,16 @@ namespace QuanLyNT_GUI
             BaoCaoDoanhThuTongQuanViewer viewer = new BaoCaoDoanhThuTongQuanViewer();
             viewer.Show();
         }
+
+        private void BaoCaoDoanhThu_GUI_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTongQuanTheoLoai_Click(object sender, EventArgs e)
+        {
+            BaoCaoDoanhThuTongQuanTheoLoaiViewer viewer = new BaoCaoDoanhThuTongQuanTheoLoaiViewer();
+            viewer.Show();
+        }
     }
 }

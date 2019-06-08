@@ -126,6 +126,30 @@ namespace QuanLyNT_BUS
 
             return rs;
         }
+        public DataSet BaoCaoDoanhThuTongQuanTheoLoai()
+        {
+            DataSet rs = new DataSet();        
+            //Chi tiết hóa đơn
+            string cmdText = "select * from tblChiTietHoaDon";
+            DataTable ChiTietHoaDon = cthd.Display(cmdText);
+            ChiTietHoaDon.TableName = "tblChiTietHoaDon";
+            rs.Tables.Add(ChiTietHoaDon);
+            //Thuốc
+            cmdText = "select distinct mathuoc,maloaithuoc,madvt,noisanxuat,ghichu " +
+                "from tblChiTietHoaDon c left join tblThuoc t on c.mathuoc_mathietbi = t.mathuoc";
+            DataTable Thuoc = t.Display(cmdText);
+            Thuoc.TableName = "tblThuoc";
+            rs.Tables.Add(Thuoc);
+            //Loại thuốc
+            cmdText = "select distinct l.maloaithuoc, l.tenloaithuoc, l.thanhphan, l.chucnang, l.ghichu from " +
+                "tblChiTietHoaDon c left join tblThuoc t on c.mathuoc_mathietbi = t.mathuoc left " +
+                "join tblLoaiThuoc l on l.maloaithuoc = t.maloaithuoc";
+            DataTable LoaiThuoc = lt.Display(cmdText);
+            LoaiThuoc.TableName = "tblLoaiThuoc";
+            rs.Tables.Add(LoaiThuoc);
+
+            return rs;
+        }
     }
 
 }

@@ -54,6 +54,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaoCaoDoanhThuTheoLoaiThuoc.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BaoCaoDoanhThuTheoLoaiThuoc.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BaoCaoDoanhThuTongQuanTheoLoaiViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaoCaoDoanhThuTongQuanTheoLoaiViewer.Designer.cs">
+      <DependentUpon>BaoCaoDoanhThuTongQuanTheoLoaiViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="BaoCaoDoanhThuTongQuanViewer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +134,13 @@
       <DependentUpon>rptBaoCaoDoanhThuTheoNgay.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="BaoCaoDoanhThuTheoLoaiThuoc.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BaoCaoDoanhThuTheoLoaiThuoc.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaoCaoDoanhThuTongQuanTheoLoaiViewer.resx">
+      <DependentUpon>BaoCaoDoanhThuTongQuanTheoLoaiViewer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BaoCaoDoanhThuTongQuanViewer.resx">
       <DependentUpon>BaoCaoDoanhThuTongQuanViewer.cs</DependentUpon>
     </EmbeddedResource>

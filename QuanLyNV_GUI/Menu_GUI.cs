@@ -55,6 +55,10 @@ namespace QuanLyNT_GUI
 
         private void báoCáoDoanhThuTheoNgàyToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            BaoCaoDoanhThu_GUI bc = new BaoCaoDoanhThu_GUI();
+            bc.ShowDialog();
+            this.Show();
             //int Ngay = dtpNgayLap.Value.Day;
             //int Thang = dtpNgayLap.Value.Month;
             //int Nam = dtpNgayLap.Value.Year;

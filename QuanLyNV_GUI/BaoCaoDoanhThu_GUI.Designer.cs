@@ -32,6 +32,7 @@
             this.btnBaoCaoTheoThang = new System.Windows.Forms.Button();
             this.btnBaoCaoTongQuan = new System.Windows.Forms.Button();
             this.dtpNgayLap = new System.Windows.Forms.DateTimePicker();
+            this.btnTongQuanTheoLoai = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnBaoCaoTheoNgay
@@ -71,17 +72,29 @@
             this.dtpNgayLap.Size = new System.Drawing.Size(200, 22);
             this.dtpNgayLap.TabIndex = 3;
             // 
+            // btnTongQuanTheoLoai
+            // 
+            this.btnTongQuanTheoLoai.Location = new System.Drawing.Point(272, 204);
+            this.btnTongQuanTheoLoai.Name = "btnTongQuanTheoLoai";
+            this.btnTongQuanTheoLoai.Size = new System.Drawing.Size(146, 72);
+            this.btnTongQuanTheoLoai.TabIndex = 4;
+            this.btnTongQuanTheoLoai.Text = "Tổng quan theo loại";
+            this.btnTongQuanTheoLoai.UseVisualStyleBackColor = true;
+            this.btnTongQuanTheoLoai.Click += new System.EventHandler(this.btnTongQuanTheoLoai_Click);
+            // 
             // BaoCaoDoanhThu_GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(681, 216);
+            this.ClientSize = new System.Drawing.Size(681, 311);
+            this.Controls.Add(this.btnTongQuanTheoLoai);
             this.Controls.Add(this.dtpNgayLap);
             this.Controls.Add(this.btnBaoCaoTongQuan);
             this.Controls.Add(this.btnBaoCaoTheoThang);
             this.Controls.Add(this.btnBaoCaoTheoNgay);
             this.Name = "BaoCaoDoanhThu_GUI";
             this.Text = "Báo cáo doanh thu";
+            this.Load += new System.EventHandler(this.BaoCaoDoanhThu_GUI_Load);
             this.ResumeLayout(false);
 
         }
@@ -92,5 +105,6 @@
         private System.Windows.Forms.Button btnBaoCaoTheoThang;
         private System.Windows.Forms.Button btnBaoCaoTongQuan;
         private System.Windows.Forms.DateTimePicker dtpNgayLap;
+        private System.Windows.Forms.Button btnTongQuanTheoLoai;
     }
 }
