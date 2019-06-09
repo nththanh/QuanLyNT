@@ -200,21 +200,21 @@
             // báoCáoDoanhThuTheoNgàyToolStripMenuItem
             // 
             this.báoCáoDoanhThuTheoNgàyToolStripMenuItem.Name = "báoCáoDoanhThuTheoNgàyToolStripMenuItem";
-            this.báoCáoDoanhThuTheoNgàyToolStripMenuItem.Size = new System.Drawing.Size(281, 26);
+            this.báoCáoDoanhThuTheoNgàyToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
             this.báoCáoDoanhThuTheoNgàyToolStripMenuItem.Text = "Báo cáo doanh thu";
             this.báoCáoDoanhThuTheoNgàyToolStripMenuItem.Click += new System.EventHandler(this.báoCáoDoanhThuTheoNgàyToolStripMenuItem_Click);
             // 
             // báoCáoDoanhThuTheoThángToolStripMenuItem
             // 
             this.báoCáoDoanhThuTheoThángToolStripMenuItem.Name = "báoCáoDoanhThuTheoThángToolStripMenuItem";
-            this.báoCáoDoanhThuTheoThángToolStripMenuItem.Size = new System.Drawing.Size(281, 26);
+            this.báoCáoDoanhThuTheoThángToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
             this.báoCáoDoanhThuTheoThángToolStripMenuItem.Text = "Báo cáo lô hàng";
             this.báoCáoDoanhThuTheoThángToolStripMenuItem.Click += new System.EventHandler(this.báoCáoDoanhThuTheoThángToolStripMenuItem_Click);
             // 
             // báoCáiToolStripMenuItem
             // 
             this.báoCáiToolStripMenuItem.Name = "báoCáiToolStripMenuItem";
-            this.báoCáiToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.báoCáiToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
             this.báoCáiToolStripMenuItem.Text = "Báo cáo tồn kho";
             this.báoCáiToolStripMenuItem.Click += new System.EventHandler(this.báoCáiToolStripMenuItem_Click);
             // 
@@ -235,43 +235,44 @@
             // mtTraCuuNV
             // 
             this.mtTraCuuNV.Name = "mtTraCuuNV";
-            this.mtTraCuuNV.Size = new System.Drawing.Size(200, 26);
+            this.mtTraCuuNV.Size = new System.Drawing.Size(216, 26);
             this.mtTraCuuNV.Text = "Tra cứu nhân viên";
+            this.mtTraCuuNV.Click += new System.EventHandler(this.mtTraCuuNV_Click);
             // 
             // mtTraCuuHD
             // 
             this.mtTraCuuHD.Name = "mtTraCuuHD";
-            this.mtTraCuuHD.Size = new System.Drawing.Size(200, 26);
+            this.mtTraCuuHD.Size = new System.Drawing.Size(216, 26);
             this.mtTraCuuHD.Text = "Tra cứu hóa đơn";
             // 
             // mtTraCuuLH
             // 
             this.mtTraCuuLH.Name = "mtTraCuuLH";
-            this.mtTraCuuLH.Size = new System.Drawing.Size(200, 26);
+            this.mtTraCuuLH.Size = new System.Drawing.Size(216, 26);
             this.mtTraCuuLH.Text = "Tra cứu lô hàng";
             // 
             // mtTraCuuCV
             // 
             this.mtTraCuuCV.Name = "mtTraCuuCV";
-            this.mtTraCuuCV.Size = new System.Drawing.Size(200, 26);
+            this.mtTraCuuCV.Size = new System.Drawing.Size(216, 26);
             this.mtTraCuuCV.Text = "Tra cứu chức vụ";
             // 
             // mtTraCuuTK
             // 
             this.mtTraCuuTK.Name = "mtTraCuuTK";
-            this.mtTraCuuTK.Size = new System.Drawing.Size(200, 26);
+            this.mtTraCuuTK.Size = new System.Drawing.Size(216, 26);
             this.mtTraCuuTK.Text = "Tra cứu tài khoản";
             // 
             // mtTraCuuThuoc
             // 
             this.mtTraCuuThuoc.Name = "mtTraCuuThuoc";
-            this.mtTraCuuThuoc.Size = new System.Drawing.Size(200, 26);
+            this.mtTraCuuThuoc.Size = new System.Drawing.Size(216, 26);
             this.mtTraCuuThuoc.Text = "Tra cứu thuốc";
             // 
             // mtTraCuuThietBi
             // 
             this.mtTraCuuThietBi.Name = "mtTraCuuThietBi";
-            this.mtTraCuuThietBi.Size = new System.Drawing.Size(200, 26);
+            this.mtTraCuuThietBi.Size = new System.Drawing.Size(216, 26);
             this.mtTraCuuThietBi.Text = "Tra cứu thiết bị";
             // 
             // Menu_GUI
@@ -281,7 +282,7 @@
             this.ClientSize = new System.Drawing.Size(605, 346);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Menu_GUI";
             this.Text = "Menu_GUI";
             this.Load += new System.EventHandler(this.Menu_GUI_Load);
